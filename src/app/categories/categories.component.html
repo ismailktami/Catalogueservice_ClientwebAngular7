@@ -1,0 +1,7 @@
+<ul class="list-group active" *ngIf="categories1">
+<li  *ngFor="let c of categories1" class="list-group-item" [ngClass]="{'active': idcat ===c.id}">
+  <a (click)="onGetProduits(c.id)" style="cursor: pointer;color:black" >{{c.name}}</a>
+  <i *ngIf="c.produis.length==0" class="fa fa-exclamation-triangle" style="float:right;"></i>
+</li>
+</ul>
+

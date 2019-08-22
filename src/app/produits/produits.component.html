@@ -1,0 +1,15 @@
+<table class="table table-striped" *ngIf="produits.length > 0">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+  </tr>
+<tr *ngFor="let p of produits">
+  <td>{{p.nom}}</td>
+  <td>{{p.price}}</td>
+
+</tr>
+</table>
+<div class="alert alert-danger alert-dismissible" role="alert" *ngIf="produits.length ==0">
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <strong>Warning!</strong> List of products is empty.
+</div>

@@ -1,0 +1,30 @@
+<div class="panel">
+  <div class="panel-heading bg-primary">
+    Gestion des catégories
+  </div>
+<div class="panel-body">
+  <table class="table" *ngIf="categorytoedit==null">
+    <tr><th>Name</th></tr>
+    <tr *ngFor="let c of categories">
+      <td>{{c.name}}
+        <i class="fa fa-edit " style="float:right;cursor: pointer;color: #4BB543;padding-right:10px;padding-left: 10px; "
+        (click)="categorytoedit=c"
+        ></i>
+
+        <i class="fa fa-trash  " style="float:right;cursor: pointer;color: red;padding-right:10px;padding-left: 10px;"
+        (click)="remove(c.id)"
+        ></i>
+      </td>
+    </tr>
+  </table>
+<div *ngIf="categorytoedit!=null">
+  <form (ngSubmit)="save()">
+    <div class="form-group">
+      <label class="control-label">Name</label>
+      <input type="text" name="name" [(ngModel)]="categorytoedit.name" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+  </form>
+</div>
+</div>
+</div>
