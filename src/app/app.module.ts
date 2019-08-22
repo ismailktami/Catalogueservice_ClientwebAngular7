@@ -8,9 +8,11 @@ import { ProduitsComponent } from './produits/produits.component';
 import { HttpClientModule} from "@angular/common/http";
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
+import {NgProgressModule} from '@ngx-progressbar/core';
 import { GestionCategoriesComponent } from './gestion-categories/gestion-categories.component';
 import { GestionProduitsComponent } from './gestion-produits/gestion-produits.component';
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
+import {HttpModule} from "@angular/http";
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { GestionUsersComponent } from './gestion-users/gestion-users.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    NgProgressModule.forRoot(),
+    HttpModule
   ],
   providers: [],
   bootstrap: [AppComponent]

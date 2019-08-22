@@ -1,6 +1,8 @@
+
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {AuthenticationService} from "./services/authentication.service";
+import {NgProgress} from "@ngx-progressbar/core";
 
 @Component({
   selector: 'app-root',
@@ -10,7 +12,7 @@ import {AuthenticationService} from "./services/authentication.service";
 export class AppComponent implements OnInit{
   title = 'catalogueproduitsweb';
 
-  constructor(private router:Router,private authenticate:AuthenticationService){}
+  constructor(private router:Router,private authenticate:AuthenticationService,private progress:NgProgress){}
   logout(){
     this.authenticate.logout();
     this.router.navigateByUrl("/login");
@@ -35,3 +37,4 @@ ngOnInit(): void {
 }
 
 }
+

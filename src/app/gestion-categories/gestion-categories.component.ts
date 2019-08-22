@@ -9,12 +9,18 @@ import {CatalogueService} from "../services/catalogue.service";
 export class GestionCategoriesComponent implements OnInit {
   categories:any[];
   categorytoedit:null;
-  constructor(private catalogueService:CatalogueService) { }
+  constructor(private catalogueService:CatalogueService) {
+  }
 
   ngOnInit() {
-    this.catalogueService.getAllcategories().subscribe(data=>{
-      this.categories= (<any>data).Categories;
-    });
+    console.log("iniiiiit gestion");
+    this.catalogueService.getCategories().subscribe(data=>{
+      console.log(data);
+      this.categories=data;
+    }
+
+    );
+
   }
 
   edit(id){
@@ -30,6 +36,7 @@ export class GestionCategoriesComponent implements OnInit {
           let pos = this.categories.map(function(e) { return e.id; }).indexOf((<any>data).id);
           this.categories.splice(pos,pos);
         });
+      this.catalogueService.editCategorie(this.categories);
     }
 
   }
@@ -39,6 +46,9 @@ export class GestionCategoriesComponent implements OnInit {
           this.categories.map(function(e) { if(e.id===(<any>data).id){
             e.name=(<any>data).name;
           } });
+          this.categorytoedit=null;
+          this.catalogueService.editCategorie(this.categories);
+
         });
   }
 }
