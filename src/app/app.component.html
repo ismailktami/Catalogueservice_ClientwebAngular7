@@ -15,10 +15,9 @@
         <li class="dropdown" *ngIf="isAuthenticated()">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin <span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a *ngIf="isAdmin()">Gestion des catgories</a></li>
-            <li><a href="#">Gestion des produits</a></li>
-            <li><a *ngIf="isAdmin()">Gestion des utilisateurs</a></li>
-
+            <li><a *ngIf="isAdmin()" routerLink="/gestioncategories">Gestion des catgories</a></li>
+            <li><a routerLink="/gestionproduits">Gestion des produits</a></li>
+            <li><a *ngIf="isAdmin()" routerLink="gestionusers">Gestion des utilisateurs</a></li>
           </ul>
         </li>
       </ul>

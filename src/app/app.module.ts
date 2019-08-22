@@ -8,13 +8,19 @@ import { ProduitsComponent } from './produits/produits.component';
 import { HttpClientModule} from "@angular/common/http";
 import { LoginComponent } from './login/login.component';
 import {FormsModule} from "@angular/forms";
+import { GestionCategoriesComponent } from './gestion-categories/gestion-categories.component';
+import { GestionProduitsComponent } from './gestion-produits/gestion-produits.component';
+import { GestionUsersComponent } from './gestion-users/gestion-users.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CategoriesComponent,
     ProduitsComponent,
-    LoginComponent
+    LoginComponent,
+    GestionCategoriesComponent,
+    GestionProduitsComponent,
+    GestionUsersComponent
   ],
   imports: [
     BrowserModule,
