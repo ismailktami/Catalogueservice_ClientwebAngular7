@@ -10,7 +10,7 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
   public login:any=null;
   constructor(private authentificationService:AuthenticationService,private router:Router) { }
-
+  error:string=null;
   ngOnInit() {
   }
   onLogin(data){
@@ -20,11 +20,21 @@ export class LoginComponent implements OnInit {
       if(jwt !=null){
         this.authentificationService.saveToken(jwt);
         this.router.navigateByUrl("/");
+        this.error=null;
       }
       else{
         this.login=false;
       }
     },err=>{
+
+          if(err.status===404){
+                this.error="Bad Credentials";
+          }
+          if(err.status===401){
+            this.error="Compte bloqued";
+
+          }
+
 
     });
   }

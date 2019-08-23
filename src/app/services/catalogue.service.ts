@@ -47,4 +47,7 @@ export class CatalogueService {
   }
 
 
+  addCategorie(data) {
+    return this.http.post(this.host+"/categories",data,{ headers: {Authorization:localStorage.getItem("token")}});
+  }
 }

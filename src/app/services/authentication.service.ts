@@ -12,7 +12,7 @@ export class AuthenticationService {
   constructor(private http:HttpClient) { }
 
   login(data){
-    return this.http.post("http://localhost:9999/login",data, {observe:"response"});
+    return this.http.post("http://localhost:9910/login",data, {observe:"response"});
   }
   saveToken(token){
     localStorage.setItem("token",token);
@@ -25,8 +25,7 @@ export class AuthenticationService {
     let jwtObject=jwtHelper.decodeToken(this.jwt);
     this.username=jwtObject.sub;
     this.roles=jwtObject.roles;
-    console.log(this.isAdmin());
-    console.log(this.isUser());
+
 
   }
 

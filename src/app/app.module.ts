@@ -12,7 +12,7 @@ import { GestionCategoriesComponent } from './gestion-categories/gestion-categor
 import { GestionProduitsComponent } from './gestion-produits/gestion-produits.component';
 import { GestionUsersComponent } from './gestion-users/gestion-users.component';
 import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
-
+import {NgProgressRouterModule} from '@ngx-progressbar/router'
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,9 @@ import { NgProgressHttpClientModule } from '@ngx-progressbar/http-client';
     HttpClientModule,
     FormsModule,
     NgProgressModule.forRoot(),
-    NgProgressHttpClientModule
+    NgProgressHttpClientModule,
+    NgProgressRouterModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

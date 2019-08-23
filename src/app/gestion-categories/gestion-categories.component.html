@@ -1,6 +1,7 @@
 <div class="panel">
   <div class="panel-heading bg-primary">
-    Gestion des catégories
+    Gestion des catégories   <i class="fa fa-plus fa-2x" style="cursor: pointer;color: springgreen;padding-right:10px;padding-left: 10px;" (click)="modeAdd=true;"></i>
+
   </div>
 <div class="panel-body">
   <table class="table" *ngIf="categorytoedit==null">
@@ -17,11 +18,12 @@
       </td>
     </tr>
   </table>
-<div *ngIf="categorytoedit!=null">
+<div *ngIf="categorytoedit!=null || modeAdd==true ">
   <form (ngSubmit)="save()">
     <div class="form-group">
       <label class="control-label">Name</label>
-      <input type="text" name="name" [(ngModel)]="categorytoedit.name" class="form-control">
+      <input *ngIf="categorytoedit!=null" type="text" name="name" [(ngModel)]="categorytoedit.name" class="form-control">
+      <input *ngIf="modeAdd==true" type="text" name="name" [(ngModel)]="nameCategory" class="form-control">
     </div>
     <button type="submit" class="btn btn-success">Save</button>
   </form>

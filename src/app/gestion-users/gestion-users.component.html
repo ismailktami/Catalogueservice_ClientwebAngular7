@@ -1,3 +1,21 @@
-<p>
-  gestion-users works!
-</p>
+<div class="panel">
+  <div class="panel-heading bg-primary">
+    Gestion des utilisateurs   <i class="fa fa-plus fa-2x" style="cursor: pointer;color: springgreen;padding-right:10px;padding-left: 10px;" (click)="modeAdd=true;"></i>
+
+  </div>
+  <div class="panel-body">
+    <table class="table" >
+      <tr><th>Name</th></tr>
+      <tr *ngFor="let u of users">
+        <td>{{u.username}}
+          <i class="fa fa-edit " style="float:right;cursor: pointer;color: #4BB543;padding-right:10px;padding-left: 10px; "
+          ></i>
+          <i *ngIf="u.actived"  class="fa fa-stop" style="float:right;cursor: pointer;color: red;padding-right:10px;padding-left: 10px;"
+          ></i>
+          <i  *ngIf="!u.actived" class="fa fa-play" style="float:right;cursor: pointer;color: lightseagreen;padding-right:10px;padding-left: 10px;"
+        ></i>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

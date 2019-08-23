@@ -13,10 +13,8 @@ export class CategoriesComponent implements OnInit {
   categories1:any[];
   idcat:string="0";
   ngOnInit() {
-    this.progress.start();
     this.catalogueService.getCategories().subscribe(data=> {
       this.categories1=data;
-      this.progress.done();
     });
 }
 

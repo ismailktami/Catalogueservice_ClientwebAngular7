@@ -23,12 +23,10 @@ export class AppComponent implements OnInit{
      return this.authenticate.isAuthenticated();
   }
 
-
   isAdmin(){
     return this.authenticate.isAdmin();
   }
   isUser(){    return this.authenticate.isUser();
-
 
   }
 ngOnInit(): void {
