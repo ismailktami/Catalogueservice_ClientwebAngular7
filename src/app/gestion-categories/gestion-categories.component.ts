@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {CatalogueService} from "../services/catalogue.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-gestion-categories',
@@ -11,7 +12,7 @@ export class GestionCategoriesComponent implements OnInit {
   categorytoedit:null;
   modeAdd:boolean=false;
   nameCategory:string;
-  constructor(private catalogueService:CatalogueService) {
+  constructor(private catalogueService:CatalogueService,private router:Router) {
   }
 
   ngOnInit() {
@@ -65,5 +66,10 @@ export class GestionCategoriesComponent implements OnInit {
 
       this.modeAdd=false;
     }
+  }
+
+  editCategorie(id){
+    this.router.navigateByUrl("/gestionproduits/"+id);
+
   }
 }

@@ -50,4 +50,18 @@ export class CatalogueService {
   addCategorie(data) {
     return this.http.post(this.host+"/categories",data,{ headers: {Authorization:localStorage.getItem("token")}});
   }
+
+  addProduitToCategory(data,idCategory){
+    return this.http.post(this.host+"/categories/"+idCategory+"/addProduit",{nom:data.nom,price:data.price},{ headers: {Authorization:localStorage.getItem("token")}});
+
+  }
+
+  editProduitToCategory(data,idCategory){
+    return this.http.post(this.host+"/categories/"+idCategory+"/editProduit",data,{ headers: {Authorization:localStorage.getItem("token")}});
+
+  }
+  deleteProduitToCategory(data,idCategory){
+    return this.http.delete(this.host+"/categories/"+idCategory+"/deleteproduit/"+data.id,{ headers: {Authorization:localStorage.getItem("token")}});
+
+  }
 }

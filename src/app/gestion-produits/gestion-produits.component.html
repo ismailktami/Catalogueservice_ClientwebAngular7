@@ -1,3 +1,42 @@
-<p>
-  gestion-produits works!
-</p>
+
+<div class="panel">
+  <div class="panel-heading bg-primary">
+      Gestion des produits
+
+    <i class="fa fa-plus fa-2x" style="cursor: pointer;color: springgreen;padding-right:10px;padding-left: 10px;" (click)="modeAdd=true;initProduit()"></i>
+
+  </div>
+  <div class="panel-body">
+    <div class="alert alert-danger alert-dismissible" role="alert" *ngIf="produits.length ==0">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <strong>Warning!</strong> List of products is empty.
+    </div>
+    <table class="table table-striped" *ngIf="produits.length > 0">
+  <tr>
+    <th>Name</th>
+    <th>Price</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let p of produits">
+    <td>{{p.nom}}</td>
+    <td>{{p.price}}</td>
+    <td><i class="fa fa-edit" (click)="produitToedit=p"></i></td>
+    <i class="fa fa-trash" (click)="deleteproduit(p)"></i>
+  </tr>
+    </table>
+
+  </div>
+
+</div>
+<div *ngIf="produitToedit!=null || modeAdd">
+  <form (ngSubmit)="save()">
+    <div class="form-group">
+      <label class="control-label">Name</label>
+      <input *ngIf="produitToedit!=null || modeAdd ==true " type="text" name="nom" [(ngModel)]="produitToedit.nom" class="form-control">
+      <input *ngIf="produitToedit!=null || modeAdd ==true" type="number" name="price" [(ngModel)]="produitToedit.price" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Save</button>
+
+
+  </form>
+</div>

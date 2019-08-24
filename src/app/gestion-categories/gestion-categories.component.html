@@ -8,16 +8,22 @@
     <tr><th>Name</th></tr>
     <tr *ngFor="let c of categories">
       <td>{{c.name}}
-        <i class="fa fa-edit " style="float:right;cursor: pointer;color: #4BB543;padding-right:10px;padding-left: 10px; "
-        (click)="categorytoedit=c"
-        ></i>
+
 
         <i class="fa fa-trash  " style="float:right;cursor: pointer;color: red;padding-right:10px;padding-left: 10px;"
         (click)="remove(c.id)"
         ></i>
+        <i class="fa fa-edit " style="float:right;cursor: pointer;color: #4BB543;padding-right:10px;padding-left: 10px; "
+           (click)="categorytoedit=c"
+        ></i>
+        <i class="fa fa-edit  " style="float:right;cursor: pointer;color:royalblue ;padding-right:10px;padding-left: 10px;"
+           (click)="editCategorie(c.id)"
+        >Edit Categories</i>
       </td>
     </tr>
   </table>
+
+
 <div *ngIf="categorytoedit!=null || modeAdd==true ">
   <form (ngSubmit)="save()">
     <div class="form-group">
@@ -26,6 +32,8 @@
       <input *ngIf="modeAdd==true" type="text" name="name" [(ngModel)]="nameCategory" class="form-control">
     </div>
     <button type="submit" class="btn btn-success">Save</button>
+
+
   </form>
 </div>
 </div>
